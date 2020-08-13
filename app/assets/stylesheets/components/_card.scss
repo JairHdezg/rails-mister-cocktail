@@ -1,0 +1,30 @@
+.card-image {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+}
+
+.cocktail-card {
+  height: 250px;
+  width: 100%;
+  margin: 10px auto;
+  background: #FBFBFB;
+  box-shadow: 1px 1px 10px lightgrey;
+  border-radius: 5px;
+}
+
+.cocktail-card a:hover{
+  text-decoration: none
+}
+
+.card-info {
+  color: white;
+  text-shadow: 1px 1px 10px grey;
+  height: 20%;
+  width: 100%;
+  padding: 15px;
+  text-align: right;
+  font-size: 20px;
+}

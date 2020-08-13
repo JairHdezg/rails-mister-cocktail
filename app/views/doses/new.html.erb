@@ -1,0 +1,13 @@
+<div class="container">
+  <h2 class="my-3">New Dose</h2>
+  <%= simple_form_for [ @cocktail, @dose ] do |f| %>
+    <div class="form-group mt-3">
+      <%= f.label :description%>
+      <%= f.text_field :description, :class => 'form-control' %>
+    </div>
+    <div class="form-group mt-3">
+      <%= f.association :ingredient, :class => 'form-control' %>
+    </div>
+      <%= f.submit :class => 'btn btn-primary mt-3'%>
+  <% end %>
+</div>

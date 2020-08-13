@@ -1,0 +1,28 @@
+
+
+<div class="container">
+
+  <div class=" d-flex justify-content-between">
+    <div class="info">
+      <h2 class="my-4 pb-2"><%= @cocktail.name %></h2>
+      <h5>Doses</h5>
+        <% @doses.each do |dose| %>
+              <p><strong><%= dose.description %></strong> <%= dose.ingredient.name %> <%= link_to "<i class='fas fa-trash-alt'></i>".html_safe,
+                  dose_path(dose),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } %> </p>
+        <% end %>
+        <h6 class="my-3">New Dose</h6>
+        <%= simple_form_for [ @cocktail, @dose ] do |f| %>
+          <div class="form-group-sm mt-3">
+            <%= f.text_field :description, :class => 'form-control', :placeholder => 'Description' %>
+          </div>
+          <div class="form-group-sm mt-3">
+            <%= f.association :ingredient, :class => 'form-control' %>
+          </div>
+            <%= f.submit :class => 'btn btn-primary mt-3'%>
+        <% end %>
+    </div>
+    <div class="b" style="background-image: linear-gradient(45deg, rgba(230,230,230,.1), rgba(80,80,80,.2)), url('<%= @cocktail.picture_url %>');">
+    </div>
+  </div>

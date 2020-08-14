@@ -26,9 +26,9 @@
               <%= f.text_field :description, :class => 'form-control form-control-sm', :placeholder => 'Description' %>
             </div>
             <div class="form-group-sm mt-1">
-              <%= f.input :ingredient, :collection => @ingredients, :label => false, input_html: { class: 'form-control-sm' }, prompt: 'Select ingredient', :class => 'form-control form-control-sm' %>
+              <%= f.association :ingredient, :label => false, input_html: { class: 'form-control-sm' }, prompt: 'Select ingredient', :class => 'form-control form-control-sm' %>
             </div>
-              <%= f.submit :class => 'btn btn-dark btn-block btn-sm mt-1 btn-dose'%>
+            <%= f.submit :class => 'btn btn-dark btn-block btn-sm mt-1'%>
           <% end %>
         </div>
       </div>

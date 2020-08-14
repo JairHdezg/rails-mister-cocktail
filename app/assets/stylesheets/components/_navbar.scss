@@ -1,0 +1,30 @@
+#navbar {
+  background-color: none
+}
+
+#navbar-black {
+  background-color: #303030
+}
+
+.transparent-input {
+   background-color: rgba(255, 255, 255, .3);
+   border: 1px solid lightgrey;
+}
+
+.options {
+  margin: 0 15px;
+  color: white;
+  font-size: 12px;
+  text-shadow: 1px 1px 1px black;
+}
+
+.options:hover {
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  transition-duration: .5s;
+}
+
+.navbar-brand {
+  text-shadow: 1px 1px 1px black;
+}

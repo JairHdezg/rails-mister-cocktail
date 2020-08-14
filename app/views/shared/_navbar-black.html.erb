@@ -1,0 +1,14 @@
+<nav class="navbar navbar-expand-lg navbar-light d-flex justify-content-between" id="navbar-black">
+  <%= link_to 'Cocktails', cocktails_path, :class => "navbar-brand text-light" %>
+  <div class="d-flex align-items-center">
+    <%= link_to 'Vodka', cocktails_path( :query => "Vodka" ), :class => "options" %>
+    <%= link_to 'Rum', cocktails_path( :query => "Rum" ), :class => "options" %>
+    <%= link_to 'Tequila', cocktails_path( :query => "Tequila" ), :class => "options" %>
+    <%= link_to 'Gin', cocktails_path( :query => "Gin" ), :class => "options" %>
+    <%= link_to 'Mezcal', cocktails_path( :query => "mezcal" ), :class => "options" %>
+    <form action='/flats' method='get' class="form-inline m-2 my-lg-0">
+      <input class="form-control-sm mr-sm-2 transparent-input border-light" type="search" aria-label="Search" name="name" value='<%= @query %>'>
+      <button class="btn btn-outline-light btn-sm my-2 mr-3 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>

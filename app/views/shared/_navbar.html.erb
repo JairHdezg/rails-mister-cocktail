@@ -1,6 +1,14 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-dark d-flex justify-content-between">
-  <%= link_to 'Cocktails', cocktails_path, :class => "navbar-brand text-light" %>
+<nav class="navbar navbar-expand-lg navbar-light d-flex justify-content-between" id="navbar">
+  <%= link_to 'Cocktails', cocktails_path, :class => "navbar-brand text-light mx-2" %>
   <div class="d-flex align-items-center">
-    <%= link_to 'New cocktail', new_cocktail_path, :class => "btn btn-light" %>
+    <%= link_to 'Vodka', cocktails_path( :query => "vodka" ), :class => "options" %>
+    <%= link_to 'Rum', cocktails_path( :query => "rum" ), :class => "options" %>
+    <%= link_to 'Tequila', cocktails_path( :query => "tequila" ), :class => "options" %>
+    <%= link_to 'Gin', cocktails_path( :query => "gin" ), :class => "options" %>
+    <%= link_to 'Mezcal', cocktails_path( :query => "mezcal" ), :class => "options" %>
+    <form action='/cocktails' method='get' class="form-inline m-2 my-lg-0">
+      <input class="form-control-sm mr-sm-2 transparent-input border-light" type="search" aria-label="Search" name="query" value='<%= @query %>'>
+      <button class="btn btn-outline-light btn-sm my-2 mr-2 my-sm-0" type="submit">Search</button>
+    </form>
   </div>
 </nav>

@@ -1,7 +1,6 @@
-
+<%= render "shared/navbar-black" %>
 
 <div class="container">
-
   <div class=" d-flex justify-content-between">
     <div class="info">
       <h2 class="my-4 pb-2"><%= @cocktail.name %></h2>
@@ -18,7 +17,7 @@
             <%= f.text_field :description, :class => 'form-control', :placeholder => 'Description' %>
           </div>
           <div class="form-group-sm mt-3">
-            <%= f.association :ingredient, :class => 'form-control' %>
+            <%= f.association :ingredient, :label => false, prompt: 'Select ingredient', :class => 'form-control' %>
           </div>
             <%= f.submit :class => 'btn btn-primary mt-3'%>
         <% end %>
@@ -26,3 +25,4 @@
     <div class="b" style="background-image: linear-gradient(45deg, rgba(230,230,230,.1), rgba(80,80,80,.2)), url('<%= @cocktail.picture_url %>');">
     </div>
   </div>
+</div>

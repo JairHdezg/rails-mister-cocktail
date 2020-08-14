@@ -7,10 +7,14 @@ class Cocktail < ApplicationRecord
   validates :name, presence: true, uniqueness: true
 
   def average
-    sum = 0
-    self.reviews.each do |review|
-      sum += review.rating
+    if self.reviews.length > 0
+      sum = 0
+      self.reviews.each do |review|
+        sum += review.rating
+      end
+      return sum / self.reviews.length
+    else
+      return 0
     end
-    sum / self.reviews.length
   end
 end

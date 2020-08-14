@@ -37,6 +37,23 @@
 
 }
 
+.card-rating {
+  left: 20px;
+  visibility: hidden;
+  vertical-align: bottom;
+  text-shadow: 1px 1px 1px grey;
+  height: 20%;
+  width: 100%;
+  padding: 15px;
+  text-align: left;
+  top: 250px;
+  font-size: 10px;
+  color: #6C6C6C;
+  position: absolute;
+  transition-duration: .3s;
+  font-family: 'Oswald', sans-serif;
+}
+
 .cocktail-card h3 {
   font-family: 'Oswald', sans-serif;
   vertical-align: bottom;
@@ -46,6 +63,13 @@
   position: absolute;
   transition-duration: .4s;
 }
+
+.cocktail-card:hover p {
+  top: 235px;
+  visibility: visible;
+  text-shadow: none;
+}
+
 
 .cocktail-card:hover h3 {
   text-transform: capitalize;

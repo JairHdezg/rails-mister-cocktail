@@ -1,11 +1,13 @@
 <div class="index">
   <%= render "shared/navbar" %>
   <div class="container">
-    <h2 class=" my-4 pb-2"></h2>
+    <h2 class=" my-5 pb-2"></h2>
     <div class="row">
-      <div class="col-12 col-md-4">
-        <%= link_to 'New cocktail', new_cocktail_path, :class => "btn btn-light" %>
-
+      <div class="col-12 col-md-4 mt-3 ">
+        <h1 class="index-title">Find your favorite coctails!</h1>
+        <div class="d-flex justify-content-center align-items-end mr-5 mt-5">
+          <%= link_to 'New cocktail', new_cocktail_path, :class => "btn btn-light index-button" %>
+        </div>
       </div>
       <div class="col-12 col-md-8 container ">
         <h2 id="cocktails-title" class="border-bottom pb-2 mb-2 text-white">All our cocktails</h2>
@@ -15,6 +17,13 @@
               <div class="cocktail-card">
                 <%= link_to cocktail_path(cocktail) do %>
                   <div class="card-image d-flex align-items-end justify-content-end" style="background-image: linear-gradient(45deg, rgba(230,230,230,.1), rgba(80,80,80,.2)), url('<%= (cl_image_path cocktail.photo.key, height: 300, width: 400, crop: :fit) if cocktail.photo.attached? %>');">
+                    <div class="mt-1 pl-5 ">
+                      <p class="card-rating">
+                      <% cocktail.average.times do %>
+                        <i class="fas fa-star"></i>
+                      <% end %>
+                      </p>
+                    </div>
                     <h3 class="mt-1 card-info"><%= cocktail.name.capitalize %></h3>
                   </div>
                 <% end %>

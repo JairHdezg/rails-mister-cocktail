@@ -11,9 +11,24 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "cocktails";
 
-.container-index {
 
+h1 {
+  line-height: 60px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 70px;
+  text-shadow: 1px 1px 1px grey;
+  color: white;
+  font-weight: 200;
+}
+
+.index-title{
+  margin-top: 40px;
+}
+
+.index-button{
+  margin-bottom: 80px;
 }
 
 .index {
@@ -25,7 +40,7 @@
 
 .cocktails {
   margin-top: 20px;
-  height: 76vh;
+  height: 60vh;
   overflow: overlay;
 }
 
@@ -53,4 +68,8 @@
 
 .text-white {
   color: white;
+}
+
+.show-reviews {
+ margin-right: 60px;
 }

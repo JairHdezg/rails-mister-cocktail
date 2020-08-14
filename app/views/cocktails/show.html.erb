@@ -1,28 +1,64 @@
 <%= render "shared/navbar-black" %>
-
-<div class="container">
-  <div class=" d-flex justify-content-between">
-    <div class="info">
-      <h2 class="my-4 pb-2"><%= @cocktail.name %></h2>
-      <h5>Doses</h5>
-        <% @doses.each do |dose| %>
-              <p><strong><%= dose.description %></strong> <%= dose.ingredient.name %> <%= link_to "<i class='fas fa-trash-alt'></i>".html_safe,
-                  dose_path(dose),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" } %> </p>
-        <% end %>
-        <h6 class="my-3">New Dose</h6>
-        <%= simple_form_for [ @cocktail, @dose ] do |f| %>
-          <div class="form-group-sm mt-3">
-            <%= f.text_field :description, :class => 'form-control', :placeholder => 'Description' %>
+<div class="banner" style="background-image: url('https://images.unsplash.com/photo-1502819126416-d387f86d47a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80');">
+</div>
+<div class="container ">
+  <div class="row justify-content-center ">
+    <div class="col-12 col-sm-9 d-flex justify-content-between show-cocktail">
+      <div class="info">
+        <h2 class="my-2 pb-2 details title"><%= @cocktail.name.capitalize %></h2>
+        <div class="details">
+          <h5 class="dose-title mb-2">Doses</h5>
+          <div class="doses">
+            <% @doses.each do |dose| %>
+              <div class="d-flex justify-content-between px-2">
+                <p class=""><strong class="mr-2"><%= dose.description %></strong> <%= dose.ingredient.name %>  </p><%= link_to "<i class='fas fa-trash-alt trash-icon'></i>".html_safe,
+                    dose_path(dose),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" } %>
+              </div>
+            <% end %>
           </div>
-          <div class="form-group-sm mt-3">
-            <%= f.association :ingredient, :label => false, prompt: 'Select ingredient', :class => 'form-control' %>
-          </div>
-            <%= f.submit :class => 'btn btn-primary mt-3'%>
-        <% end %>
+        </div>
+        <div class="details my-2">
+          <h6 class="dose-title">New Dose</h6>
+          <%= simple_form_for [ @cocktail, @dose ] do |f| %>
+            <div class="form-group-sm mt-3">
+              <%= f.text_field :description, :class => 'form-control form-control-sm', :placeholder => 'Description' %>
+            </div>
+            <div class="form-group-sm mt-1">
+              <%= f.input :ingredient, :collection => @ingredients, :label => false, input_html: { class: 'form-control-sm' }, prompt: 'Select ingredient', :class => 'form-control form-control-sm' %>
+            </div>
+              <%= f.submit :class => 'btn btn-dark btn-block btn-sm mt-1 btn-dose'%>
+          <% end %>
+        </div>
+      </div>
+      <div class="b" style="background-image: linear-gradient(45deg, rgba(230,230,230,.1), rgba(80,80,80,.2)), url('<%= (cl_image_path @cocktail.photo.key, height: 300, width: 400, crop: :fit) if @cocktail.photo.attached? %>');">
+      </div>
     </div>
-    <div class="b" style="background-image: linear-gradient(45deg, rgba(230,230,230,.1), rgba(80,80,80,.2)), url('<%= cl_image_path @cocktail.photo.key, height: 300, width: 400, crop: :fit %>');">
+    <div class="col-12 col-sm-9 justify-content-center show-cocktail">
+      <div class="show-reviews mx-3 my-2 details ">
+        <h5 class="dose-title mb-2">Reviews</h5>
+        <div class="doses">
+          <% @reviews.each do |review| %>
+            <div class="d-flex justify-content-between px-2">
+              <p class=""><%= review.content.capitalize %></p>
+              <p> Rating : <%= review.rating %></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="show-reviews mx-3 details ">
+        <h6 class="dose-title">New Review</h6>
+        <%= simple_form_for [ @cocktail, @review ] do |f| %>
+          <div class="form-group-sm mt-3">
+            <%= f.text_field :content, :class => 'form-control form-control-sm', :placeholder => 'Content' %>
+          </div>
+          <div class="form-group">
+            <%= f.input :rating, :collection => [0, 1, 2, 3, 4, 5], :class => 'form-control form-control-sm', input_html: { class: 'form-control-sm' } %>
+          </div>
+            <%= f.submit :class => 'btn btn-dark btn-block btn-sm mt-1 btn-dose'%>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

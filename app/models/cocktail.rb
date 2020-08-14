@@ -5,6 +5,7 @@ class Cocktail < ApplicationRecord
   has_many :reviews, dependent: :destroy
 
   validates :name, presence: true, uniqueness: true
+  validates :photo, presence: true
 
   def average
     if self.reviews.length > 0

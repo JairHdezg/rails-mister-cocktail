@@ -4,10 +4,10 @@
     <%= link_to 'Vodka', cocktails_path( :query => "Vodka" ), :class => "options" %>
     <%= link_to 'Rum', cocktails_path( :query => "Rum" ), :class => "options" %>
     <%= link_to 'Tequila', cocktails_path( :query => "Tequila" ), :class => "options" %>
-    <%= link_to 'Gin', cocktails_path( :query => "Gin" ), :class => "options" %>
+    <%= link_to 'Gin', cocktails_path( :query => "gin" ), :class => "options" %>
     <%= link_to 'Mezcal', cocktails_path( :query => "mezcal" ), :class => "options" %>
     <form action='/cocktails' method='get' class="form-inline my-lg-0" id="nav-btn">
-      <input class="form-control-sm mr-sm-2 transparent-input border-light" type="search" aria-label="Search" name="name" value='<%= @query %>'>
+      <input class="form-control-sm mr-sm-2 transparent-input border-light" type="search" aria-label="Search" name="query" value='<%= @query %>'>
       <button class="btn btn-outline-light btn-sm my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>

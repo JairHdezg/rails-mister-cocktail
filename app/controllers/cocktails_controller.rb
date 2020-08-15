@@ -4,7 +4,7 @@ class CocktailsController < ApplicationController
     if params[:query]
       @query = params[:query]
       @cocktails = Cocktail.select("cocktails.*")
-                            .where("ingredients.name.downcase LIKE '%#{@query}%'")
+                            .where("lower(ingredients.name) LIKE '%#{@query}%'")
                            .joins(ingredients: :doses)
     else
       @cocktails = Cocktail.all

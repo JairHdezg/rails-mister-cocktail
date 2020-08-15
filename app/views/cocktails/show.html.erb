@@ -4,35 +4,37 @@
 <div class="container ">
   <div class="row justify-content-center ">
     <div class="col-12 col-sm-9 container justify-content-center show-cocktail">
-      <div class="info col-12 col-sm-6">
-        <h2 class="my-2 pb-2 details title"><%= @cocktail.name.capitalize %></h2>
-        <div class="details">
-          <h5 class="dose-title mb-2">Doses</h5>
-          <div class="doses">
-            <% @doses.each do |dose| %>
-              <div class="d-flex justify-content-between px-2">
-                <p class=""><strong class="mr-2"><%= dose.description %></strong> <%= dose.ingredient.name %>  </p><%= link_to "<i class='fas fa-trash-alt trash-icon'></i>".html_safe,
-                    dose_path(dose),
-                    method: :delete,
-                    data: { confirm: "Are you sure?" } %>
+      <div class="row">
+        <div class="info col-12 col-md-7">
+          <h2 class="my-2 pb-2 details title"><%= @cocktail.name.capitalize %></h2>
+          <div class="details">
+            <h5 class="dose-title mb-2">Doses</h5>
+            <div class="doses">
+              <% @doses.each do |dose| %>
+                <div class="d-flex justify-content-between px-2">
+                  <p class=""><strong class="mr-2"><%= dose.description %></strong> <%= dose.ingredient.name %>  </p><%= link_to "<i class='fas fa-trash-alt trash-icon'></i>".html_safe,
+                      dose_path(dose),
+                      method: :delete,
+                      data: { confirm: "Are you sure?" } %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+          <div class="details my-2">
+            <h6 class="dose-title">New Dose</h6>
+            <%= simple_form_for [ @cocktail, @dose ] do |f| %>
+              <div class="form-group-sm mt-3">
+                <%= f.text_field :description, :class => 'form-control form-control-sm', :placeholder => 'Description' %>
               </div>
+              <div class="form-group-sm mt-1">
+                <%= f.association :ingredient, :label => false, input_html: { class: 'form-control-sm' }, prompt: 'Select ingredient', :class => 'form-control form-control-sm' %>
+              </div>
+              <%= f.submit :class => 'btn btn-dark btn-block btn-sm mt-1'%>
             <% end %>
           </div>
         </div>
-        <div class="details my-2">
-          <h6 class="dose-title">New Dose</h6>
-          <%= simple_form_for [ @cocktail, @dose ] do |f| %>
-            <div class="form-group-sm mt-3">
-              <%= f.text_field :description, :class => 'form-control form-control-sm', :placeholder => 'Description' %>
-            </div>
-            <div class="form-group-sm mt-1">
-              <%= f.association :ingredient, :label => false, input_html: { class: 'form-control-sm' }, prompt: 'Select ingredient', :class => 'form-control form-control-sm' %>
-            </div>
-            <%= f.submit :class => 'btn btn-dark btn-block btn-sm mt-1'%>
-          <% end %>
+        <div class="b col-12 col-md-5" style="background-image: linear-gradient(45deg, rgba(230,230,230,.1), rgba(80,80,80,.2)), url('<%= (cl_image_path @cocktail.photo.key, height: 300, width: 400, crop: :fit) if @cocktail.photo.attached? %>');">
         </div>
-      </div>
-      <div class="b col-12 col-sm-6" style="background-image: linear-gradient(45deg, rgba(230,230,230,.1), rgba(80,80,80,.2)), url('<%= (cl_image_path @cocktail.photo.key, height: 300, width: 400, crop: :fit) if @cocktail.photo.attached? %>');">
       </div>
     </div>
     <div class="col-12 col-sm-9 justify-content-center show-cocktail">

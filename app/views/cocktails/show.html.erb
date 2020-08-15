@@ -3,8 +3,8 @@
 </div>
 <div class="container ">
   <div class="row justify-content-center ">
-    <div class="col-12 col-sm-9 d-flex justify-content-between show-cocktail">
-      <div class="info">
+    <div class="col-12 col-sm-9 container justify-content-center show-cocktail">
+      <div class="info col-12 col-sm-6">
         <h2 class="my-2 pb-2 details title"><%= @cocktail.name.capitalize %></h2>
         <div class="details">
           <h5 class="dose-title mb-2">Doses</h5>
@@ -32,7 +32,7 @@
           <% end %>
         </div>
       </div>
-      <div class="b" style="background-image: linear-gradient(45deg, rgba(230,230,230,.1), rgba(80,80,80,.2)), url('<%= (cl_image_path @cocktail.photo.key, height: 300, width: 400, crop: :fit) if @cocktail.photo.attached? %>');">
+      <div class="b col-12 col-sm-6" style="background-image: linear-gradient(45deg, rgba(230,230,230,.1), rgba(80,80,80,.2)), url('<%= (cl_image_path @cocktail.photo.key, height: 300, width: 400, crop: :fit) if @cocktail.photo.attached? %>');">
       </div>
     </div>
     <div class="col-12 col-sm-9 justify-content-center show-cocktail">

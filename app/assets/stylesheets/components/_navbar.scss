@@ -1,4 +1,5 @@
 #navbar {
+  width: 100%;
   background-color: none
 }
 
@@ -29,4 +30,22 @@
   font-style: 'Oswald';
   font-weight: 600;
   text-shadow: 1px 1px 1px black;
+}
+
+@media (max-width: 768px) {
+  .options {
+    display: none;
+    margin: 0;
+  }
+  .querys {
+    justify-content: flex-end;
+
+  }
+
+  #nav-btn {
+    text-align: left;
+    width: 100%;
+    clear: both;
+    display: inline-block;
+  }
 }

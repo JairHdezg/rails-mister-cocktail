@@ -3,6 +3,10 @@
   background-color: none
 }
 
+#nav-btn {
+  margin-right: 10px;
+}
+
 #navbar-black {
   background-color: #303030
 }
@@ -39,10 +43,13 @@
   }
   .querys {
     justify-content: flex-end;
-
+    padding: 0;
+    margin: 0;
   }
 
   #nav-btn {
+    padding: 0;
+    margin: 0;
     text-align: left;
     width: 100%;
     clear: both;
